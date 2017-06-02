@@ -9,10 +9,10 @@ Mastermind game
 from mastermind import game
 
 if __name__ == "__main__":
-    print "Welcome to mastermind"
+    print "Welcome to mastermind \n"
     while True:
         print "Mastermind main menu"
-        print "type start to play a game, type quit to quit"
+        print "type start to play a game, type quit to quit \n"
         quit = False
                 
         while True:

@@ -51,8 +51,7 @@ def get_score(n, code, guess):
 
 def game():
     print "play a game!"
-    print "Type quit anytime to quit the game"
-    print
+    print "Type quit anytime to quit the game \n"
     
     n = 4
     code = ''
