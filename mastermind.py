@@ -42,10 +42,11 @@ def get_score(n, code, guess):
     for i in range(n):
         if guess[i] == code[i]:
             score1 += 1
-        elif guess[i] in code:
-            score2 += 1
-            
-    return score1, score2
+    
+    for j in set(guess):
+        score2 += min(code.count(j), guess.count(j))        
+        
+    return score1, score2 - score1
 
 
 def game():
