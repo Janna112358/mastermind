@@ -2,7 +2,7 @@
 """
 Created on Fri Jun  2 22:40:25 2017
 
-@author: jgoldstein
+@author: Janna112358
 
 mastermind
 """
@@ -10,13 +10,18 @@ mastermind
 from numpy.random import randint
 
 
-def rules():
+def display(name):
     """
-    Display mastermind rules on screen
+    Display rules or credits on screen
+    
+    Parameters
+    ----------
+    name: {'rules', 'credits'}
+        what to display
     """
-    rules = open('rules.txt', 'r')
-    for r in rules:
-        print r
+    text = open(name + '.txt', 'r')
+    for line in text:
+        print line
 
 
 def get_guess(n):

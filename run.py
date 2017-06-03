@@ -2,19 +2,23 @@
 """
 Created on Fri Jun  2 22:40:25 2017
 
-@author: jgoldstein
+@author: Janna112358
 Mastermind game
 """
 
-from mastermind import game, rules
+from mastermind import game, display
 
 if __name__ == "__main__":
     print "Welcome to mastermind \n"
     
     # loop allows to keep running mastermind until the user quits
     while True:
-        print "Mastermind main menu"
-        print "type start to play a game, type quit to quit \n"
+        print "Mastermind main menu \n"
+        print "Choose one of the following options\n\
+start: start a game \n\
+rules: display the rules of mastermind \n\
+credits: display credits \n\
+quit: quit mastermind \n"
         quit = False
                 
         # loop allows to aks for input until we have valid input for any
@@ -28,7 +32,10 @@ if __name__ == "__main__":
                 game()
                 break
             elif ans == "rules" or ans == "r":
-                rules()
+                display('rules')
+                break
+            elif ans == "credits" or ans == "c":
+                display('credits')
                 break
             else:
                 print "sorry, that option is not recognised"

@@ -1,0 +1,3 @@
+Mastermind in python created by Janna112358
+free to use, code available at github.com/Janna112358/mastermind
+
