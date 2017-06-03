@@ -14,7 +14,7 @@ from numpy.random import randint
 def get_guess(n):
     while True:
         quit_game = False
-        guess = raw_input("enter guess: ")
+        guess = raw_input("guess >> ")
         if guess == "quit" or guess == "q":
             quit_game = True
             guess = None
@@ -35,6 +35,30 @@ def get_guess(n):
     
     return quit_game, guess
     
+def get_n():
+    while True:
+        quit_game = False
+        n = raw_input("Choose a code length >> ")
+        if n == "quit" or n == "q":
+            quit_game = True
+            n = None
+            break
+        
+        if len(n) == 1:
+            try:
+                n = int(n)
+                valid_n = True
+                break
+            except:
+                valid_n = False
+        else:
+            valid_n = False
+        if not valid_n:
+            print "Invalid input, needs to be one integer"
+            continue
+    
+    return quit_game, n
+    
 def get_score(n, code, guess):
     score1 = 0
     score2 = 0
@@ -53,7 +77,12 @@ def game():
     print "play a game!"
     print "Type quit anytime to quit the game \n"
     
-    n = 4
+    quit_game, n = get_n()
+    if quit_game:
+        return 0
+    print "You have chosen a code length of %d \n"%n
+    
+    
     code = ''
     for i in range(n):
         code += str(randint(0, 9))

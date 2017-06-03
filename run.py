@@ -16,7 +16,7 @@ if __name__ == "__main__":
         quit = False
                 
         while True:
-            ans = raw_input('enter: ')
+            ans = raw_input('>> ')
             if ans == "quit" or ans == "q":
                 quit = True
                 break
