@@ -7,11 +7,26 @@ Created on Fri Jun  2 22:40:25 2017
 mastermind
 """
 
-import numpy as np
 from numpy.random import randint
 
 
 def get_guess(n):
+    """
+    Allow user to input a guess
+    
+    Parameters
+    ----------
+    n: int
+        the length of the code in the game
+        
+    Returns
+    -------
+    bool
+        if True, user indicated to quit the game
+    string
+        valid length n guess
+    """
+    # loop allows to aks for input until we have something valid
     while True:
         quit_game = False
         guess = raw_input("guess >> ")
@@ -20,6 +35,9 @@ def get_guess(n):
             guess = None
             break
         
+        # check if guess has correct length and consists of integers
+        # (by trying to convert the guess to a single integer, which should work
+        # for any code of 4 digits)
         if len(guess) == n:
             try:
                 int(guess)
@@ -31,11 +49,23 @@ def get_guess(n):
             valid_guess = False
         if not valid_guess:
             print "Invalid input, guess needs to be a code of %d integers"%n
+            # this ensures the loop continues
             continue
     
     return quit_game, guess
     
 def get_n():
+    """
+    Allows user to input a length for the code to use
+    
+    Returns
+    -------
+    bool
+        if True, user indicated to quit the game
+    int
+        length of the code to generate
+    """
+    # loop allows to aks for input until we have something valid
     while True:
         quit_game = False
         n = raw_input("Choose a code length >> ")
@@ -44,6 +74,7 @@ def get_n():
             n = None
             break
         
+        # check wether the input is valid, i.e. an integer
         try:
             n = int(n)
             valid_n = True
@@ -57,13 +88,33 @@ def get_n():
     return quit_game, n
     
 def get_score(n, code, guess):
-    score1 = 0
-    score2 = 0
+    """
+    Score a guess given a code and the length
+    
+    Parameters
+    ----------
+    n: int
+        length of the code
+    code: string
+        n-digit code
+    guess: string
+        n-digit guess
+        
+    Returns
+    -------
+    int
+        number of correct digits in the right place
+    int
+        number of correct digits in the wrong place
+    """
+    score1 = 0  # number of correct digits in the right place
+    score2 = 0  # number of correct digits in the wrong place
     
     for i in range(n):
         if guess[i] == code[i]:
             score1 += 1
     
+    # this allows for correct scoring of doubles
     for j in set(guess):
         score2 += min(code.count(j), guess.count(j))        
         
@@ -71,6 +122,15 @@ def get_score(n, code, guess):
 
 
 def game():
+    """
+    Allow user to play a game
+    
+    Returns
+    -------
+    int
+        0 if user quit the game
+        otherwise the number of turns it took to win
+    """
     print "play a game!"
     print "Type quit anytime to quit the game \n"
     
@@ -91,6 +151,9 @@ def game():
             break
 
         score1, score2 = get_score(n, code, guess)
+        # win condition is that all of the digits are correct and in the right
+        # place, so the first score should be equal to the number of digits
+        # in the code
         if score1 == n:
             print "you win! turns: %d"%turn
             print

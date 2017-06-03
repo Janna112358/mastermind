@@ -10,11 +10,15 @@ from mastermind import game
 
 if __name__ == "__main__":
     print "Welcome to mastermind \n"
+    
+    # loop allows to keep running mastermind until the user quits
     while True:
         print "Mastermind main menu"
         print "type start to play a game, type quit to quit \n"
         quit = False
                 
+        # loop allows to aks for input until we have valid input for any
+        # of the game options or the user quits
         while True:
             ans = raw_input('>> ')
             if ans == "quit" or ans == "q":
