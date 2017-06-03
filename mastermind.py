@@ -30,7 +30,7 @@ def get_guess(n):
         else:
             valid_guess = False
         if not valid_guess:
-            print "Invalid input, guess needs to be a code of 4 integers"
+            print "Invalid input, guess needs to be a code of %d integers"%n
             continue
     
     return quit_game, guess
@@ -44,17 +44,14 @@ def get_n():
             n = None
             break
         
-        if len(n) == 1:
-            try:
-                n = int(n)
-                valid_n = True
-                break
-            except:
-                valid_n = False
-        else:
+        try:
+            n = int(n)
+            valid_n = True
+            break
+        except:
             valid_n = False
         if not valid_n:
-            print "Invalid input, needs to be one integer"
+            print "Invalid input, needs to be an integer"
             continue
     
     return quit_game, n
