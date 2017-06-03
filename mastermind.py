@@ -19,9 +19,11 @@ def display(name):
     name: {'rules', 'credits'}
         what to display
     """
-    text = open(name + '.txt', 'r')
-    for line in text:
-        print line
+    fname = name + '.txt'
+    f = open(fname, 'r')
+    text = f.read()
+    print(text)
+    f.close()
 
 
 def get_guess(n):
