@@ -6,7 +6,7 @@ Created on Fri Jun  2 22:40:25 2017
 Mastermind game
 """
 
-from mastermind import game
+from mastermind import game, rules
 
 if __name__ == "__main__":
     print "Welcome to mastermind \n"
@@ -25,13 +25,13 @@ if __name__ == "__main__":
                 quit = True
                 break
             elif ans == "start" or ans == "s":
-                start_game = True
+                game()
+                break
+            elif ans == "rules" or ans == "r":
+                rules()
                 break
             else:
                 print "sorry, that option is not recognised"
                 continue
         if quit:
             break
-    
-        if start_game:
-            game()

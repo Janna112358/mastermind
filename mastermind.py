@@ -10,6 +10,15 @@ mastermind
 from numpy.random import randint
 
 
+def rules():
+    """
+    Display mastermind rules on screen
+    """
+    rules = open('rules.txt', 'r')
+    for r in rules:
+        print r
+
+
 def get_guess(n):
     """
     Allow user to input a guess

@@ -1,0 +1,5 @@
+Mastermind is a code breaking game. The code is genereted randomly as a known number of digits (you can choose this yourself at the start of the game). In each turn, you have to make a guess for the code. If you guess correctly, you win the game! 
+Of course, in the first turn, you have no idea about the code. However, after each (wrong) guess, you get two scores that give you some information. The first score gives you the number of digits that you guess correctly in the right position, the second score gives you the number of correct digits but in a wrong position. Doubles are counted as separate digits. 
+For example: The code is 1123, and you guess 3141. The first score is 1, since the second digit (the 1) is guess correctly in the right position. The second score is 2; one point for the digit 3 and one point for the other digit 1. 
+The goal of the game is guessing the code in as few turns as possible. Think about what guesses can give you the information you need and you'll be able to deduce the code. Good luck! 
+
