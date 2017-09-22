@@ -51,6 +51,11 @@ def get_guess(n):
             guess = None
             break
         
+        elif guess == "cheatycheat":
+            quit_game = False
+            guess = "cheat"
+            break
+        
         # check if guess has correct length and consists of integers
         # (by trying to convert the guess to a single integer, which should work
         # for any code of 4 digits)
@@ -165,6 +170,9 @@ def game():
         quit_game, guess = get_guess(n)
         if quit_game:
             break
+        elif guess == "cheat":
+            print "code: %s"%code
+            continue
 
         score1, score2 = get_score(n, code, guess)
         # win condition is that all of the digits are correct and in the right
