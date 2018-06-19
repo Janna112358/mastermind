@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jun  2 22:40:25 2017
@@ -45,7 +46,7 @@ def get_guess(n):
     # loop allows to aks for input until we have something valid
     while True:
         quit_game = False
-        guess = raw_input("guess >> ")
+        guess = input("guess >> ")
         if guess == "quit" or guess == "q":
             quit_game = True
             guess = None
@@ -69,7 +70,7 @@ def get_guess(n):
         else:
             valid_guess = False
         if not valid_guess:
-            print "Invalid input, guess needs to be a code of %d integers"%n
+            print("Invalid input, guess needs to be a code of %d integers"%n)
             # this ensures the loop continues
             continue
     
@@ -89,7 +90,7 @@ def get_n():
     # loop allows to aks for input until we have something valid
     while True:
         quit_game = False
-        n = raw_input("Choose a code length >> ")
+        n = input("Choose a code length >> ")
         if n == "quit" or n == "q":
             quit_game = True
             n = None
@@ -103,7 +104,7 @@ def get_n():
         except:
             valid_n = False
         if not valid_n:
-            print "Invalid input, needs to be an integer"
+            print("Invalid input, needs to be an integer")
             continue
     
     return quit_game, n
@@ -152,13 +153,13 @@ def game():
         0 if user quit the game
         otherwise the number of turns it took to win
     """
-    print "play a game!"
-    print "Type quit anytime to quit the game \n"
+    print("play a game!")
+    print("Type quit anytime to quit the game \n")
     
     quit_game, n = get_n()
     if quit_game:
         return 0
-    print "You have chosen a code length of %d \n"%n
+    print("You have chosen a code length of %d \n"%n)
     
     
     code = ''
@@ -171,7 +172,7 @@ def game():
         if quit_game:
             break
         elif guess == "cheat":
-            print "code: %s"%code
+            print("code: %s"%code)
             continue
 
         score1, score2 = get_score(n, code, guess)
@@ -179,10 +180,10 @@ def game():
         # place, so the first score should be equal to the number of digits
         # in the code
         if score1 == n:
-            print "you win! turns: %d"%turn
+            print("you win! turns: %d"%turn)
             print
             return turn
             
-        print "turn %d, guess: %s, score: %d %d"%(turn, guess, score1, score2)
+        print("turn %d, guess: %s, score: %d %d"%(turn, guess, score1, score2))
         turn += 1
     
